@@ -1,4 +1,12 @@
-import Component from '@glimmer/component';
+/* eslint-disable ember/no-jquery */
+import Component from '@ember/component';
+import { select } from 'd3-selection';
 
-export default class BarChartComponent extends Component {
-}
+export default Component.extend({
+  didInsertElement() {
+    let svg = select(this.$('svg')[0]);
+    svg.append('rect')
+      .attr('width', 20)
+      .attr('height', 100);
+  }
+});
