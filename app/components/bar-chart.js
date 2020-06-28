@@ -16,7 +16,7 @@ export default Component.extend({
     let authorCounts = this.authors.map(author => author.count);
     let yScale = scaleLinear()
       .domain([0, Math.max(...authorCounts)])
-      .range([0, 150]);
+      .range([0, 100]);
 
     let xScale = scaleBand()
       .domain(this.authors.map(author => author.name))
@@ -28,8 +28,8 @@ export default Component.extend({
       .enter()
       .append('rect')
       .attr('width', `${xScale.bandwidth()}%`)
-      .attr('height', author => yScale(author.count))
+      .attr('height', author => `${yScale(author.count)}%`)
       .attr('x', author => `${xScale(author.name)}%`)
-      .attr('y', author => 150 - yScale(author.count));
+      .attr('y', author => `${100 - yScale(author.count)}%`);
   }
 });
