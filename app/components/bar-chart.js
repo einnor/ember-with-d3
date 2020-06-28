@@ -17,7 +17,7 @@ export default Component.extend({
       .enter()
       .append('rect')
       .attr('width', 20)
-      .attr('height')
+      .attr('height', (author) => author.count)
       .attr('x', (author, index) => 25 * index);
   }
 });
