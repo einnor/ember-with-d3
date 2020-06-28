@@ -13,6 +13,11 @@ export default Component.extend({
 
   didInsertElement() {
     let svg = select(this.$('svg')[0]);
-    svg.selectAll('rect').data(this.authors);
+    svg.selectAll('rect').data(this.authors)
+      .enter()
+      .append('rect')
+      .attr('width', 20)
+      .attr('height')
+      .attr('x', (author, index) => 25 * index);
   }
 });
