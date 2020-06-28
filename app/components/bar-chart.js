@@ -25,5 +25,7 @@ export default Component.extend({
       .attr('height', item => `${yScale(item.count)}%`)
       .attr('x', item => `${xScale(item.label)}%`)
       .attr('y', item => `${100 - yScale(item.count)}%`);
+    
+    this.set('tooltipTarget', this.$('svg')[0]);
   }
 });
