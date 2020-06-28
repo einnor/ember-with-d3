@@ -5,13 +5,7 @@ import { select } from 'd3-selection';
 import { scaleLinear, scaleBand } from 'd3-scale';
 
 export default Component.extend({
-  data: [
-    { label: 'Mark Twain', count: 15 },
-    { label: 'Virginia Woolf', count: 45 },
-    { label: 'John Steinbeck', count: 23 },
-    { label: 'Ralph Ellison', count: 27 },
-  ],
-
+  data: [],
   didInsertElement() {
     let counts = this.data.map(item => item.count);
     let yScale = scaleLinear()
