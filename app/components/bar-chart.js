@@ -15,14 +15,15 @@ export default Component.extend({
   didInsertElement() {
     let authorCounts = this.authors.map(author => author.count);
     let yScale = scaleLinear()
-      .domain([0, Math.max(...authorCounts)]);
+      .domain([0, Math.max(...authorCounts)])
+      .range([0, 150]);
 
     let svg = select(this.$('svg')[0]);
     svg.selectAll('rect').data(this.authors)
       .enter()
       .append('rect')
       .attr('width', 20)
-      .attr('height', (author) => author.count)
+      .attr('height', (author) => yScale(author.count))
       .attr('x', (author, index) => 25 * index);
   }
 });
