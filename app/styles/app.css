@@ -5,3 +5,16 @@
 .h4 {
   height: 128px;
 }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.ph4 {
+  padding-right: 24px;
+  padding-left: 24px;
+}
