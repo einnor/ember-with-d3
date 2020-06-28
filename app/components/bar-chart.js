@@ -28,7 +28,8 @@ export default Component.extend({
       .enter()
       .append('rect')
       .attr('width', xScale.bandwidth())
-      .attr('height', (author) => yScale(author.count))
-      .attr('x', (author) => xScale(author.name));
+      .attr('height', author => yScale(author.count))
+      .attr('x', author => xScale(author.name))
+      .attr('y', author => 150 - yScale(author.count));
   }
 });
