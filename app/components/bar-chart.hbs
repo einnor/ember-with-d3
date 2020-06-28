@@ -1,8 +1,10 @@
 <svg width='100%' height='100%'></svg>
 
-{{#modal-dialog
-  tetherTarget=tooltipTarget
-  targetAttachment='top middle'
-}}
-  <p>Hello, tooltip!</p>
-{{/modal-dialog}}
+{{#if tooltipTarget}}
+  {{#modal-dialog
+    tetherTarget=tooltipTarget
+    targetAttachment='top middle'
+  }}
+    <p>Hello, tooltip!</p>
+  {{/modal-dialog}}
+{{/if}}
