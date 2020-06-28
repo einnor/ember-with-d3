@@ -6,10 +6,10 @@ import { scaleLinear, scaleBand } from 'd3-scale';
 
 export default Component.extend({
   data: [
-    { name: 'Mark Twain', count: 15 },
-    { name: 'Virginia Woolf', count: 45 },
-    { name: 'John Steinbeck', count: 23 },
-    { name: 'Ralph Ellison', count: 27 },
+    { label: 'Mark Twain', count: 15 },
+    { label: 'Virginia Woolf', count: 45 },
+    { label: 'John Steinbeck', count: 23 },
+    { label: 'Ralph Ellison', count: 27 },
   ],
 
   didInsertElement() {
@@ -19,7 +19,7 @@ export default Component.extend({
       .range([0, 100]);
 
     let xScale = scaleBand()
-      .domain(this.data.map(item => item.name))
+      .domain(this.data.map(item => item.label))
       .range([0, 100])
       .paddingInner(0.12);
 
@@ -29,7 +29,7 @@ export default Component.extend({
       .append('rect')
       .attr('width', `${xScale.bandwidth()}%`)
       .attr('height', item => `${yScale(item.count)}%`)
-      .attr('x', item => `${xScale(item.name)}%`)
+      .attr('x', item => `${xScale(item.label)}%`)
       .attr('y', item => `${100 - yScale(item.count)}%`);
   }
 });
