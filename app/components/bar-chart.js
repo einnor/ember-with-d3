@@ -20,16 +20,16 @@ export default Component.extend({
 
     let xScale = scaleBand()
       .domain(this.authors.map(author => author.name))
-      .range([0, 300])
+      .range([0, 100])
       .paddingInner(0.12);
 
     let svg = select(this.$('svg')[0]);
     svg.selectAll('rect').data(this.authors)
       .enter()
       .append('rect')
-      .attr('width', xScale.bandwidth())
+      .attr('width', `${xScale.bandwidth()}%`)
       .attr('height', author => yScale(author.count))
-      .attr('x', author => xScale(author.name))
+      .attr('x', author => `${xScale(author.name)}%`)
       .attr('y', author => 150 - yScale(author.count));
   }
 });
